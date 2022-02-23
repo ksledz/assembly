@@ -1,0 +1,9 @@
+core ideas:
+- implemented in rust for speed and cleanliness
+- using rust's seqio for handling fasta files 
+- indexmap for graph storage
+- own heuristic for error removal in preprocessing: i try every single possible substitution for any given read to see if it significantly improves 10-mer frequency around the substituted position
+- function for error removall is called twice because after first pass the histogram will be higher quality and allow for correcting few more errors
+- program constructs de brujin graph for 40-mers
+- program cleans the tips of de brujin graph if they are length < 80 and have weight of connecting edge < maximum at the merging point OR equal to 1
+- program has a loop where it finds a vertex with the most connections, constructs a contig from it walking forward and backward and removes those edges from the graph
